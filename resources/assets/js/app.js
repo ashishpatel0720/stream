@@ -4,7 +4,9 @@ require('./bootstrap');//for doing bootstrapping for our app
  import './bootstrap' //which is es6 syntax
 
  */
+import router from "./routes"
 
-const app = new Vue({
-    el: '#app'
+new Vue({
+    el: '#app',
+    router:router
 });
