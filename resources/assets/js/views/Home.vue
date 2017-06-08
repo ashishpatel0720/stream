@@ -1,27 +1,43 @@
 <template>
-    <article class="message">
-  <div class="message-header">
-    <p>Hello World</p>
-    <button class="delete"></button>
-  </div>
-  <div class="message-body">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
-  </div>
-</article>
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <div class="massage" v-for="status in statuses" style="margin:1em">
+                    <div class="message-header">
+                        <p v-if="status.user!=null">{{status.user.name}}says..</p><p v-else="">Someone says..</p>
+                        <p>{{status.created_at|formate}}</p>
+                     </div>
+                    <div class="message-body">
+                        {{status.body}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </template>
 
 <script>
     export default {
         mounted() {
-            console.log('Component mounted.')
+            axios.get('/statuses/')
+                .then(({data})=>this.statuses=data)
+        },
+        data(){
+            return {
+                statuses:[]
+            }
+        },
+        filters:{
+            formate(date){ return moment(date).fromNow()}
         }
     }
 </script>
 
-<style>
-    .message{
-        margin:1em;
-    }
+<style lang="scss">
+div.container {
+         margin:2em;
+}
 
 
 </style>

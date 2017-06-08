@@ -9,6 +9,8 @@ window.Vue = require('vue');
 import axios from 'axios'
 window.axios=axios;
 
+import moment from 'moment'
+window.moment=moment
 
 import VueRouter from 'vue-router'
 Vue.use(VueRouter); //telling vue to use this object for routing
@@ -21,7 +23,7 @@ let token = document.head.querySelector('meta[name="csrf-token"]');
 if (token) {
     window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 } else {
-    console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+    // console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
 
 

@@ -1,18 +1,25 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">About</div>
-                    <div class="panel-body">
-                        this is about page
-                    </div>
-                </div>
-            </div>
+  <div class="columns">
+    <div class="column">
+      <div class="message">
+        <div class="message-header">
+            <p>About</p>
+            <p>a moment ago...</p>
         </div>
+        <div class="message-body">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab animi architecto dicta ducimus ea reiciendis, tenetur voluptate? Cumque cupiditate ea id laborum libero quos tempore voluptatibus. Consequatur ipsam nulla vero?
+         </div>
+      </div>
     </div>
+  </div>
+
 </template>
 
+<style>
+    .message{
+        margin:1em;
+    }
+</style>
 <script>
     export default {
         mounted() {
